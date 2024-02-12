@@ -1,5 +1,6 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Volumes/CHESHIRE/AURAVIRTUAL -B /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug
 -- Building for macOS
+-- Including Cocoa support
 -- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug

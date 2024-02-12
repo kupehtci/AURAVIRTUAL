@@ -4,10 +4,7 @@ namespace aura{
 
     void Renderer::Init()
     {
-        if (glfwVulkanSupported())
-        {
-            std::cout << "Vulkan supported" << std::endl;
-        }
+        //_window = glfwCreateWindow(640, 480, "GLFW CMake starter", NULL, NULL);
     }
 
     void Renderer::Update(){
@@ -20,5 +17,9 @@ namespace aura{
 
     void Renderer::Close(){
 
+    }
+
+    void Renderer::Hello() {
+        std::cout << "Hello from Renderer" << std::endl;
     }
 }

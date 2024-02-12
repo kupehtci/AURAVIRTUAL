@@ -6,13 +6,15 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(AURAVIRTUAL "./src/core/main.cpp")
 
 target_include_directories(AURAVIRTUAL PUBLIC ./src/components)
+target_include_directories(AURAVIRTUAL PUBLIC ./src/renderer)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/core)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/debug)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/math)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/physics)
-target_include_directories(AURAVIRTUAL PUBLIC ./src/renderer)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/scene)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/ui)
+
+file(GLOB "./src/core/" CONFIGURE_DEPENDS "*.h" "*.cpp")
 
 # Vulkan library
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -26,13 +28,28 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     find_package(Vulkan REQUIRED)
     target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
 
-    # Link GLFW
-    target_include_directories(AURAVIRTUAL PUBLIC "./lib")
-    #target_link_libraries(AURAVIRTUAL glfw)
 
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     message(STATUS "Building for Windows")
 endif()
+
+# Link GLFW
+set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
+set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
+set( GLAD_GL "" )
+
+add_subdirectory( ./lib/GLFW )   # This works with /lib/GLFW/CMakeLists.txt
+
+
+option( USE-GLFW-GLAD "Use GLAD from GLFW" ON )
+
+if( USE-GLFW-GLAD )
+    include_directories("${GLFW_SOURCE_DIR}/deps")
+    include_directories("${GLFW_SOURCE_DIR}/include")
+    set( GLAD_GL "${GLFW_SOURCE_DIR}/deps/glad/gl.h" )
+endif()
+
+target_link_libraries(AURAVIRTUAL glfw)
 
 
 

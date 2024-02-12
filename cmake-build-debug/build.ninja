@@ -18,7 +18,7 @@
 #############################################
 # Minimal version of Ninja required by this file
 
-ninja_required_version = 1.5
+ninja_required_version = 1.8
 
 
 #############################################
@@ -47,12 +47,12 @@ cmake_ninja_workdir = /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/
 #############################################
 # Order-only phony target for AURAVIRTUAL
 
-build cmake_object_order_depends_target_AURAVIRTUAL: phony || CMakeFiles/AURAVIRTUAL.dir
+build cmake_object_order_depends_target_AURAVIRTUAL: phony || cmake_object_order_depends_target_glfw
 
 build CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o: CXX_COMPILER__AURAVIRTUAL_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/src/core/main.cpp || cmake_object_order_depends_target_AURAVIRTUAL
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/core
 
@@ -64,8 +64,9 @@ build CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o: CXX_COMPILER__AURAVIRTUAL_
 #############################################
 # Link the executable AURAVIRTUAL
 
-build AURAVIRTUAL: CXX_EXECUTABLE_LINKER__AURAVIRTUAL_Debug CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o
+build AURAVIRTUAL: CXX_EXECUTABLE_LINKER__AURAVIRTUAL_Debug CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o | lib/GLFW/src/libglfw3.a || lib/GLFW/src/libglfw3.a
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
+  LINK_LIBRARIES = lib/GLFW/src/libglfw3.a  -framework Cocoa  -framework IOKit  -framework CoreFoundation
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -96,7 +97,277 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Volumes/CHESHIRE/AURAVIRTUAL/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build lib/GLFW/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build lib/GLFW/edit_cache: phony lib/GLFW/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build lib/GLFW/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Volumes/CHESHIRE/AURAVIRTUAL -B/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build lib/GLFW/rebuild_cache: phony lib/GLFW/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/context.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/context.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/init.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/init.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/input.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/input.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/input.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/monitor.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/monitor.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/platform.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/platform.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/vulkan.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/vulkan.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/vulkan.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/window.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/window.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/egl_context.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/egl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/egl_context.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/osmesa_context.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/osmesa_context.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/null_init.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/null_init.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/null_monitor.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/null_monitor.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/null_window.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/null_window.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/null_joystick.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/null_joystick.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_time.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/cocoa_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_time.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/posix_module.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/posix_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/posix_module.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/posix_thread.c.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/posix_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/posix_thread.c.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_init.m.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/cocoa_init.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_init.m.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/cocoa_joystick.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/cocoa_monitor.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_window.m.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/cocoa_window.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_window.m.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+build lib/GLFW/src/CMakeFiles/glfw.dir/nsgl_context.m.o: C_COMPILER__glfw_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/nsgl_context.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = lib/GLFW/src/CMakeFiles/glfw.dir/nsgl_context.m.o.d
+  FLAGS = -g -std=c99 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src -I/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library lib/GLFW/src/libglfw3.a
+
+build lib/GLFW/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug lib/GLFW/src/CMakeFiles/glfw.dir/context.c.o lib/GLFW/src/CMakeFiles/glfw.dir/init.c.o lib/GLFW/src/CMakeFiles/glfw.dir/input.c.o lib/GLFW/src/CMakeFiles/glfw.dir/monitor.c.o lib/GLFW/src/CMakeFiles/glfw.dir/platform.c.o lib/GLFW/src/CMakeFiles/glfw.dir/vulkan.c.o lib/GLFW/src/CMakeFiles/glfw.dir/window.c.o lib/GLFW/src/CMakeFiles/glfw.dir/egl_context.c.o lib/GLFW/src/CMakeFiles/glfw.dir/osmesa_context.c.o lib/GLFW/src/CMakeFiles/glfw.dir/null_init.c.o lib/GLFW/src/CMakeFiles/glfw.dir/null_monitor.c.o lib/GLFW/src/CMakeFiles/glfw.dir/null_window.c.o lib/GLFW/src/CMakeFiles/glfw.dir/null_joystick.c.o lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_time.c.o lib/GLFW/src/CMakeFiles/glfw.dir/posix_module.c.o lib/GLFW/src/CMakeFiles/glfw.dir/posix_thread.c.o lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_init.m.o lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o lib/GLFW/src/CMakeFiles/glfw.dir/cocoa_window.m.o lib/GLFW/src/CMakeFiles/glfw.dir/nsgl_context.m.o
+  ARCH_FLAGS = -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = lib/GLFW/src/CMakeFiles/glfw.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/GLFW/src/libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build lib/GLFW/src/update_mappings: phony lib/GLFW/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build lib/GLFW/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build lib/GLFW/src/edit_cache: phony lib/GLFW/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build lib/GLFW/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Volumes/CHESHIRE/AURAVIRTUAL -B/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build lib/GLFW/src/rebuild_cache: phony lib/GLFW/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Custom command for lib/GLFW/src/CMakeFiles/update_mappings
+
+build lib/GLFW/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}lib/GLFW/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = cd /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+  DESC = Updating gamepad mappings from upstream repository
+
+# =============================================================================
 # Target aliases.
+
+build glfw: phony lib/GLFW/src/libglfw3.a
+
+build libglfw3.a: phony lib/GLFW/src/libglfw3.a
+
+build update_mappings: phony lib/GLFW/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -106,23 +377,51 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug
 
-build all: phony AURAVIRTUAL
+build all: phony AURAVIRTUAL lib/GLFW/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW
+
+build lib/GLFW/all: phony lib/GLFW/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src
+
+build lib/GLFW/src/all: phony lib/GLFW/src/libglfw3.a
 
 # =============================================================================
 # Built-in targets
 
 
 #############################################
+# Phony target to force glob verification run.
+
+build /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake_force: phony
+
+
+#############################################
+# Re-run CMake to check if globbed directories changed.
+
+build /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/cmake.verify_globs: VERIFY_GLOBS | /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake_force
+  pool = console
+  restat = 1
+
+
+#############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindVulkan.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Volumes/CHESHIRE/AURAVIRTUAL/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/cmake.verify_globs | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindVulkan.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake /Volumes/CHESHIRE/AURAVIRTUAL/CMakeLists.txt /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMake/glfw3.pc.in /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMake/glfw3Config.cmake.in /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMakeLists.txt /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindVulkan.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Volumes/CHESHIRE/AURAVIRTUAL/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/FindVulkan.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake /Volumes/CHESHIRE/AURAVIRTUAL/CMakeLists.txt /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMake/glfw3.pc.in /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMake/glfw3Config.cmake.in /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/CMakeLists.txt /Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
 
 
 #############################################

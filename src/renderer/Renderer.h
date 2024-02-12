@@ -7,8 +7,8 @@
 #include <exception>
 #include "Singleton.h"
 
-#include <vulkan/vulkan.h>
-#include <GLFW/glfw3.h>
+//#include <vulkan/vulkan.h>
+//#include <GLFW/glfw3.h>
 
 namespace aura{
 
@@ -31,11 +31,13 @@ namespace aura{
     class Renderer: public Singleton<Renderer>{
     public:
         GraphicsAPI _graphicsAPI;
+//        GLFWwindow* _window;
 
     public:
 
         Renderer(){
             _graphicsAPI = GraphicsAPI::Vulkan;
+            //_window = nullptr;
         }
 
         void Init();
@@ -44,9 +46,7 @@ namespace aura{
         void Close();
 
         // Testing methods
-        inline void Hello(){
-            std::cout << "Hello from Renderer" << std::endl;
-        }
+        void Hello();
     };
 }
 

@@ -1,0 +1,127 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "lib/GLFW",
+					"childIndexes" : 
+					[
+						2
+					],
+					"jsonFile" : "directory-lib.GLFW-Debug-92b0df395da91b1250ae.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "lib/GLFW"
+				},
+				{
+					"build" : "lib/GLFW/src",
+					"jsonFile" : "directory-lib.GLFW.src-Debug-1419910e535de8779320.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/GLFW/src",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "AURAVIRTUAL",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "AURAVIRTUAL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-AURAVIRTUAL-Debug-d51521cb25af90d07db8.json",
+					"name" : "AURAVIRTUAL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "glfw::@7f7e1cec871d98d8952a",
+					"jsonFile" : "target-glfw-Debug-a86368342750b0e130c5.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "update_mappings::@7f7e1cec871d98d8952a",
+					"jsonFile" : "target-update_mappings-Debug-8a86a7b6eadcf0271d20.json",
+					"name" : "update_mappings",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug",
+		"source" : "/Volumes/CHESHIRE/AURAVIRTUAL"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
