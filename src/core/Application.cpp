@@ -19,13 +19,13 @@ namespace aura{
 //        glfwDestroyWindow(window);
     }
 
-//    void Application::Running() {
-//        while(_isRunning){
-//
-//        }
-//    }
-//
-//    void Application::Close(){
-//
-//    }
+    void Application::Running() {
+        while(_isRunning){
+
+        }
+    }
+
+    void Application::Close(){
+
+    }
 }

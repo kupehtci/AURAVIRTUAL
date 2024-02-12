@@ -110,7 +110,7 @@ float Vector2D::AngleRad(Vector2D a, Vector2D b) {
 }
 
 float Vector2D::AngleDeg(Vector2D a, Vector2D b){
-    return AuraMath::Rad2Deg(AngleRad(a, b));
+    //return AuraMath::Rad2Deg(AngleRad(a, b));
 }
 
 float Vector2D::SignedAngle(Vector2D a, Vector2D b) {
@@ -125,7 +125,7 @@ float Vector2D::SignedAngle(Vector2D a, Vector2D b) {
 
 Vector2D Vector2D::Lerp(Vector2D a, Vector2D b, float t) {
 
-    float lx = AuraMath::Lerp(a.x, b.x, t);
-    float ly = AuraMath::Lerp(a.y, b.y, t);
-    return Vector2D(lx, ly);
+   //float lx = AuraMath::Lerp(a.x, b.x, t);
+    //float ly = AuraMath::Lerp(a.y, b.y, t);
+    //return Vector2D(lx, ly);
 }

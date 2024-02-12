@@ -15,9 +15,9 @@ namespace aura{
         Application();
 
         // State function
-        //void Init();
-//        void Running();
-//        void Close();
+        void Init();
+        void Running();
+        void Close();
     };
 }
 

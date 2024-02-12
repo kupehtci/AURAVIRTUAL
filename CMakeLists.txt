@@ -3,7 +3,17 @@ project(AURAVIRTUAL)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(AURAVIRTUAL "./src/core/main.cpp")
+#add_executable(AURAVIRTUAL "./src/core/main.cpp")
+file(GLOB SRCFILES CONFIGURE_DEPENDS
+        "./src/core/*.h" "./src/core/*.cpp"
+        "./src/renderer/*.h" "./src/renderer/*.cpp"
+        "./src/components/*.h" "./src/components/*.cpp"
+        "./src/debug/*.h" "./src/debug/*.cpp"
+        "./src/math/*.h" "./src/math/*.cpp"
+        "./src/physics/*.h" "./src/physics/*.cpp"
+        "./src/scene/*.h" "./src/scene/*.cpp"
+        "./src/ui/*.h" "./src/ui/*.cpp")
+add_executable(AURAVIRTUAL ${SRCFILES})
 
 target_include_directories(AURAVIRTUAL PUBLIC ./src/components)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/renderer)
@@ -14,7 +24,7 @@ target_include_directories(AURAVIRTUAL PUBLIC ./src/physics)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/scene)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/ui)
 
-file(GLOB "./src/core/" CONFIGURE_DEPENDS "*.h" "*.cpp")
+
 
 # Vulkan library
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")

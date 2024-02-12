@@ -49,12 +49,40 @@ cmake_ninja_workdir = /Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/
 
 build cmake_object_order_depends_target_AURAVIRTUAL: phony || cmake_object_order_depends_target_glfw
 
+build CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o: CXX_COMPILER__AURAVIRTUAL_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/src/core/Application.cpp || cmake_object_order_depends_target_AURAVIRTUAL
+  DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
+  OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/core
+
 build CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o: CXX_COMPILER__AURAVIRTUAL_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/src/core/main.cpp || cmake_object_order_depends_target_AURAVIRTUAL
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
   INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/core
+
+build CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o: CXX_COMPILER__AURAVIRTUAL_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/src/math/Vector2D.cpp || cmake_object_order_depends_target_AURAVIRTUAL
+  DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
+  OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/math
+
+build CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o: CXX_COMPILER__AURAVIRTUAL_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/src/renderer/Renderer.cpp || cmake_object_order_depends_target_AURAVIRTUAL
+  DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
+  OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/renderer
+
+build CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o: CXX_COMPILER__AURAVIRTUAL_unscanned_Debug /Volumes/CHESHIRE/AURAVIRTUAL/src/scene/Object.cpp || cmake_object_order_depends_target_AURAVIRTUAL
+  DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o.d
+  FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
+  OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/scene
 
 
 # =============================================================================
@@ -64,7 +92,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o: CXX_COMPILER__AURAVIRTUAL_
 #############################################
 # Link the executable AURAVIRTUAL
 
-build AURAVIRTUAL: CXX_EXECUTABLE_LINKER__AURAVIRTUAL_Debug CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o | lib/GLFW/src/libglfw3.a || lib/GLFW/src/libglfw3.a
+build AURAVIRTUAL: CXX_EXECUTABLE_LINKER__AURAVIRTUAL_Debug CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o | lib/GLFW/src/libglfw3.a || lib/GLFW/src/libglfw3.a
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
   LINK_LIBRARIES = lib/GLFW/src/libglfw3.a  -framework Cocoa  -framework IOKit  -framework CoreFoundation
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
