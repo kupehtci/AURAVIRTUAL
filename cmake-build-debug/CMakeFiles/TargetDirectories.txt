@@ -1,0 +1,3 @@
+/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/AURAVIRTUAL.dir
+/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
