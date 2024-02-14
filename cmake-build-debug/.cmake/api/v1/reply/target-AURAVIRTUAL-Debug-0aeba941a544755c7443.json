@@ -11,6 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"target_link_directories",
 			"target_link_libraries",
 			"target_include_directories",
 			"include_directories"
@@ -34,6 +35,12 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
 				"line" : 64,
 				"parent" : 0
 			},
@@ -41,73 +48,73 @@
 				"file" : 1
 			},
 			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 1,
 				"line" : 161,
-				"parent" : 3
+				"parent" : 4
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 20,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 21,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 22,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 23,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 24,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 25,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 26,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 27,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 41,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 4,
 				"file" : 0,
 				"line" : 59,
 				"parent" : 0
 			},
 			{
-				"command" : 3,
+				"command" : 4,
 				"file" : 0,
 				"line" : 60,
 				"parent" : 0
@@ -126,47 +133,47 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/components"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/core"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 9,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 10,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/math"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 11,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics"
 				},
 				{
-					"backtrace" : 11,
+					"backtrace" : 12,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 13,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK/include"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 15,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps"
 				},
 				{
-					"backtrace" : 15,
+					"backtrace" : 16,
 					"path" : "/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include"
 				}
 			],
@@ -192,7 +199,7 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
+			"backtrace" : 3,
 			"id" : "glfw::@7f7e1cec871d98d8952a"
 		}
 	],
@@ -211,21 +218,35 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "-L/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
 				"fragment" : "lib/GLFW/src/libglfw3.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 4,
+				"backtrace" : 3,
+				"fragment" : "-lvulkan",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
 				"fragment" : "-framework Cocoa",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 4,
+				"backtrace" : 5,
 				"fragment" : "-framework IOKit",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 4,
+				"backtrace" : 5,
 				"fragment" : "-framework CoreFoundation",
 				"role" : "libraries"
 			}

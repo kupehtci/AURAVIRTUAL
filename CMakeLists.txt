@@ -39,7 +39,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
     find_package(Vulkan REQUIRED)
     target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
-
+    target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}")
 
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     message(STATUS "Building for Windows")
@@ -61,7 +61,7 @@ if( USE-GLFW-GLAD )
     set( GLAD_GL "${GLFW_SOURCE_DIR}/deps/glad/gl.h" )
 endif()
 
-target_link_libraries(AURAVIRTUAL glfw)
+target_link_libraries(AURAVIRTUAL glfw vulkan)
 
 
 

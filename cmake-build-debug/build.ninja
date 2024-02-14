@@ -94,7 +94,8 @@ build CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o: CXX_COMPILER__AURAVIRTU
 
 build AURAVIRTUAL: CXX_EXECUTABLE_LINKER__AURAVIRTUAL_Debug CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o | lib/GLFW/src/libglfw3.a || lib/GLFW/src/libglfw3.a
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
-  LINK_LIBRARIES = lib/GLFW/src/libglfw3.a  -framework Cocoa  -framework IOKit  -framework CoreFoundation
+  LINK_LIBRARIES = -Wl,-rpath,/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK  lib/GLFW/src/libglfw3.a  -lvulkan  -framework Cocoa  -framework IOKit  -framework CoreFoundation
+  LINK_PATH = -L/Volumes/CHESHIRE/AURAVIRTUAL/./lib/MoltenVK
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   POST_BUILD = :
   PRE_LINK = :

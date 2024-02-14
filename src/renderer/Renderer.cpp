@@ -44,9 +44,9 @@ namespace aura{
                 glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
             }
 
-            _window = glfwCreateWindow(640, 480, "GLFW CMake starter", NULL, NULL);
+            _window = glfwCreateWindow((int)_windowSize.width, (int)_windowSize.height, "GLFW CMake starter", NULL, NULL);
 
-            uint32_t extensionCount = 0;
+            this->CreateInstance();
         }
         else{
             std::cout << "No graphics API avaliable";
@@ -94,6 +94,7 @@ namespace aura{
         _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
         _createInfo.pApplicationInfo = &_appInfo;
 
+
         uint32_t glfwExtensionCount = 0;
         const char** glfwExtensions;
         glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
@@ -102,11 +103,40 @@ namespace aura{
         _createInfo.ppEnabledExtensionNames = glfwExtensions;
         _createInfo.enabledLayerCount = 0;
 
+
+
         // Create instance
-        if(vkCreateInstance(&_createInfo, nullptr, &_vkinstance) != VkResult::VK_SUCCESS){
+        VkResult instanceCreateResult = vkCreateInstance(&_createInfo, nullptr, &_vkinstance);
+        if(instanceCreateResult != VkResult::VK_SUCCESS){
             std::cout << "Failed to create VkInstance" << std::endl;
+
+            switch(instanceCreateResult){
+                case VK_ERROR_INCOMPATIBLE_DRIVER:
+                    std::cout << "Unable to create instance: Incompatible driver" << std::endl;
+                    break;
+                case VK_ERROR_OUT_OF_HOST_MEMORY:
+                    std::cout << "Unable to create instance: Host out of memory" << std::endl;
+                    break;
+                case VK_ERROR_OUT_OF_DEVICE_MEMORY:
+                    std::cout << "Unable to create instance: Device out of memory" << std::endl;
+                    break;
+                case VK_ERROR_INITIALIZATION_FAILED:
+                    std::cout << "Unable to create instance: Initialization failed" << std::endl;
+                    break;
+                case VK_ERROR_LAYER_NOT_PRESENT:
+                    std::cout << "Unable to create instance: Layer not present" << std::endl;
+                    break;
+                case VK_ERROR_EXTENSION_NOT_PRESENT:
+                    std::cout << "Unable to create instance: Extension not present" << std::endl;
+                    break;
+                default:
+                    std::cout << "Unable to create instance: Not defined error" << std::endl;
+                    break;
+            }
             abort();
         }
+
+        
     }
 
     // endregion
