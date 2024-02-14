@@ -5,16 +5,22 @@
 
 namespace aura{
 
+    enum ApplicationPlatform{MacOS = 0, Linux, Windows, notdefined};
+
     class Application {
     public:
+        //region Attributes
         bool _isRunning;
+        ApplicationPlatform _platform;
 
-        //Managers references
+        // Manager references
         Renderer* _renderer;
+
+        //endregion
+
     public:
         Application();
 
-        // State function
         void Init();
         void Running();
         void Close();

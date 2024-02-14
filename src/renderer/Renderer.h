@@ -8,13 +8,24 @@
 #include "Singleton.h"
 
 //#include <vulkan/vulkan.h>
-//#include <GLFW/glfw3.h>
+#define GLFW_INCLUDE_VULKAN
+#include <GLFW/glfw3.h>
 
 namespace aura{
 
     struct WindowSize{
-        int height;
-        int width;
+        uint16_t height;
+        uint16_t width;
+
+        WindowSize(){
+            height = 480;
+            width = 600;
+        }
+
+        WindowSize(int w, int h){
+            width = w;
+            height = h;
+        }
     };
 
     struct Color{
@@ -31,14 +42,18 @@ namespace aura{
     class Renderer: public Singleton<Renderer>{
     public:
         GraphicsAPI _graphicsAPI;
-//        GLFWwindow* _window;
+        GLFWwindow* _window;
+        WindowSize _windowSize;
+        bool _isWindowResizable;
+
+        VkApplicationInfo _appInfo;
+        VkInstanceCreateInfo _createInfo;
+        VkInstance _vkinstance;
 
     public:
 
-        Renderer(){
-            _graphicsAPI = GraphicsAPI::Vulkan;
-            //_window = nullptr;
-        }
+        Renderer();
+        Renderer(int width, int height);
 
         void Init();
         void Update();
@@ -47,6 +62,10 @@ namespace aura{
 
         // Testing methods
         void Hello();
+
+    private:
+        void CreateInstance();
+
     };
 }
 

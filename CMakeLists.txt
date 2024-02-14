@@ -3,6 +3,7 @@ project(AURAVIRTUAL)
 
 set(CMAKE_CXX_STANDARD 17)
 
+#--------- define executable *.cpp files ---------
 #add_executable(AURAVIRTUAL "./src/core/main.cpp")
 file(GLOB SRCFILES CONFIGURE_DEPENDS
         "./src/core/*.h" "./src/core/*.cpp"
@@ -13,6 +14,7 @@ file(GLOB SRCFILES CONFIGURE_DEPENDS
         "./src/physics/*.h" "./src/physics/*.cpp"
         "./src/scene/*.h" "./src/scene/*.cpp"
         "./src/ui/*.h" "./src/ui/*.cpp")
+
 add_executable(AURAVIRTUAL ${SRCFILES})
 
 target_include_directories(AURAVIRTUAL PUBLIC ./src/components)

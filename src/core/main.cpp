@@ -6,10 +6,10 @@
 using namespace aura;
 
 int main(){
-    Renderer renderer = Renderer();
-    renderer.Hello();
+    Application app = Application();
 
-    //app.Init();
-    std::cout << "Hwllo";
+    app.Init();
+    app.Running();
+    app.Close();
     return 0;
 }
