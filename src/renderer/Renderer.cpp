@@ -1,4 +1,6 @@
 #include "Renderer.h"
+#include "Application.h"
+
 
 namespace aura{
 
@@ -30,21 +32,18 @@ namespace aura{
         }
 
 
-        if (true){
 
-            if(_graphicsAPI == GraphicsAPI::Vulkan){
-                // Avoid OpenGL to be initialized
-                glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-            }
+        if (_graphicsAPI == GraphicsAPI::Vulkan && glfwVulkanSupported() == GLFW_TRUE){
 
-            if(_isWindowResizable){
-                glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-            }
-            else {
-                glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-            }
+            std::cout << "Vulkan is supported" << std::endl;
 
-            _window = glfwCreateWindow((int)_windowSize.width, (int)_windowSize.height, "GLFW CMake starter", NULL, NULL);
+            PFN_vkCreateInstance pfnCreateInstance = (PFN_vkCreateInstance)glfwGetInstanceProcAddress(NULL, "vkCreateInstance");
+
+            glfwWindowHint(GLFW_RESIZABLE, _isWindowResizable);
+
+            glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API); // Avoid OpenGL to be initialized
+
+            _window = glfwCreateWindow((int)_windowSize.width, (int)_windowSize.height, "Aura Virtual", NULL, NULL);
 
             this->CreateInstance();
         }
@@ -52,7 +51,6 @@ namespace aura{
             std::cout << "No graphics API avaliable";
             abort();
         }
-
     }
 
     void Renderer::Update(){
@@ -86,24 +84,42 @@ namespace aura{
         _appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
         _appInfo.pApplicationName = "AURAVIRTUAL";
         _appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-        _appInfo.pEngineName = "No Engine";
+        _appInfo.pEngineName = "AURAVIRTUAL";
         _appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
-        _appInfo.apiVersion = VK_API_VERSION_1_0;
-
-        // Complete Create Info
-        _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-        _createInfo.pApplicationInfo = &_appInfo;
+        _appInfo.apiVersion = VK_MAKE_VERSION(1, 0, 2);
 
 
-        uint32_t glfwExtensionCount = 0;
+        unsigned int glfwExtensionCount = 0;
         const char** glfwExtensions;
         glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+        if(!glfwExtensions){
+            std::cout << "Failed to find platform surface extensions" << std::endl;
+            //abort();
+        }
 
-        _createInfo.enabledExtensionCount = glfwExtensionCount;
-        _createInfo.ppEnabledExtensionNames = glfwExtensions;
-        _createInfo.enabledLayerCount = 0;
+        // Resolve VK_ERROR_INCOMPATIBLE_DRIVER
+        if(Application::instance->_platform == ApplicationPlatform::MacOS){
+            // Complete Create Info
+            _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+            _createInfo.pApplicationInfo = &_appInfo;
 
+            uint32_t extensionCount = 0;
+            vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
 
+            std::cout << extensionCount << " extensions supported" << std::endl;
+            std::cout << glfwExtensionCount << " glfw extensions supported" << std::endl;
+
+            _createInfo.enabledExtensionCount = (glfwExtensionCount);
+            _createInfo.ppEnabledExtensionNames = glfwExtensions;
+        }
+//        else if(Application::instance->_platform == ApplicationPlatform::Linux || Application::instance->_platform == ApplicationPlatform::Windows){
+//
+//            _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+//            _createInfo.pApplicationInfo = &_appInfo;
+//            _createInfo.enabledExtensionCount = glfwExtensionCount;
+//            _createInfo.ppEnabledExtensionNames = glfwExtensions;
+//            _createInfo.enabledLayerCount = 0;
+//        }
 
         // Create instance
         VkResult instanceCreateResult = vkCreateInstance(&_createInfo, nullptr, &_vkinstance);
@@ -133,10 +149,11 @@ namespace aura{
                     std::cout << "Unable to create instance: Not defined error" << std::endl;
                     break;
             }
-            abort();
+            //abort();
         }
-
-        
+        else{
+            std::cout << "Success creating VKinstance" << std::endl;
+        }
     }
 
     // endregion

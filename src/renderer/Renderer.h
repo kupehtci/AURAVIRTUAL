@@ -5,9 +5,14 @@
 
 #include <stdio.h>
 #include <exception>
+//#include "ApplicationPlatform.h"
 #include "Singleton.h"
 
-//#include <vulkan/vulkan.h>
+//#if VK_HEADER_VERSION_COMPLETE >= VK_MAKE_API_VERSION(0, 1, 3, 216)
+#define VULKAN_HAS_KHR_PORTABILITY
+//#endif
+
+#include <vulkan/vulkan.h>
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
@@ -65,7 +70,6 @@ namespace aura{
 
     private:
         void CreateInstance();
-
     };
 }
 

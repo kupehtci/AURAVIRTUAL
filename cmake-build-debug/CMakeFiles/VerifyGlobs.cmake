@@ -35,6 +35,7 @@ endif()
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Volumes/CHESHIRE/AURAVIRTUAL/./src/core/*.h")
 set(OLD_GLOB
   "/Volumes/CHESHIRE/AURAVIRTUAL/./src/core/Application.h"
+  "/Volumes/CHESHIRE/AURAVIRTUAL/./src/core/ApplicationPlatform.h"
   "/Volumes/CHESHIRE/AURAVIRTUAL/./src/core/Singleton.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

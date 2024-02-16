@@ -1,13 +1,15 @@
 #ifndef AURAVIRTUAL_APPLICATION_H
 #define AURAVIRTUAL_APPLICATION_H
 
+#include "ApplicationPlatform.h"
 #include "Renderer.h"
 
 namespace aura{
 
-    enum ApplicationPlatform{MacOS = 0, Linux, Windows, notdefined};
+
 
     class Application {
+        friend class Renderer;
     public:
         //region Attributes
         bool _isRunning;
@@ -16,6 +18,8 @@ namespace aura{
         // Manager references
         Renderer* _renderer;
 
+        //Singleton
+        static Application* instance;
         //endregion
 
     public:
@@ -24,6 +28,9 @@ namespace aura{
         void Init();
         void Running();
         void Close();
+
+    private:
+        void CreateSingleton();
     };
 }
 

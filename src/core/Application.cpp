@@ -2,16 +2,17 @@
 
 namespace aura{
 
+    Application* Application::instance = nullptr;
+
     Application::Application() {
         _isRunning = true;
-        _platform = ApplicationPlatform::MacOS;
-
+        _platform = ApplicationPlatform::notdefined;
+        if(Application::instance == nullptr) { Application::instance = this; }
     }
 
     void Application::Init() {
-
         // Detect platform
-
+        _platform = ApplicationPlatform::MacOS;
 
         // Create managers
         Renderer::Create();
@@ -38,5 +39,9 @@ namespace aura{
 
     void Application::Close(){
         _renderer->Close();
+    }
+
+    void Application::CreateSingleton() {
+        instance = this;
     }
 }

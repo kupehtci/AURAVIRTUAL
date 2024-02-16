@@ -15,7 +15,8 @@ file(GLOB SRCFILES CONFIGURE_DEPENDS
         "./src/scene/*.h" "./src/scene/*.cpp"
         "./src/ui/*.h" "./src/ui/*.cpp")
 
-add_executable(AURAVIRTUAL ${SRCFILES})
+add_executable(AURAVIRTUAL ${SRCFILES}
+        src/renderer/triangle-vulkan.c)
 
 target_include_directories(AURAVIRTUAL PUBLIC ./src/components)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/renderer)
@@ -33,13 +34,16 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     message(STATUS "Building for macOS")
 
     # Link Vulkan library
-    set(VULKAN_PATH "./lib/MoltenVK")
+    set(VULKAN_PATH "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS") #previous: ./lib/MoltenVK
     set(Vulkan_INCLUDE_DIR ${VULKAN_PATH}/include)
-    set(Vulkan_LIBRARY ${VULKAN_PATH}/libMoltenVK.dylib)
+    set(Vulkan_LIBRARY ${VULKAN_PATH}/lib)
+    set(VK_ICD_FILENAMES ${VULKAN_PATH}/share/vulkan/icd.d/MoltenVK_icd.json)
 
     find_package(Vulkan REQUIRED)
     target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
-    target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}")
+    target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/lib")
+    target_compile_definitions(AURAVIRTUAL PUBLIC VK_USE_PLATFORM_MACOS_MVK)     # define macOs usage
+    target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/share/vulkan/icd.d/")
 
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     message(STATUS "Building for Windows")
@@ -63,6 +67,22 @@ endif()
 
 target_link_libraries(AURAVIRTUAL glfw vulkan)
 
+
+
+
+#    if (DEFINED VULKAN_SDK_PATH)
+#        set(Vulkan_INCLUDE_DIRS "${VULKAN_SDK_PATH}/Include") # 1.1 Make sure this include path is correct
+#        set(Vulkan_LIBRARIES "${VULKAN_SDK_PATH}/Lib") # 1.2 Make sure lib path is correct
+#        set(Vulkan_FOUND "True")
+#    else()
+#        find_package(Vulkan REQUIRED) # throws error if could not find Vulkan
+#        message(STATUS "Found Vulkan: $ENV{VULKAN_SDK}")
+#    endif()
+#    if (NOT Vulkan_FOUND)
+#        message(FATAL_ERROR "Could not find Vulkan library!")
+#    else()
+#        message(STATUS "Using vulkan lib at: ${Vulkan_LIBRARIES}")
+#    endif()
 
 
 
