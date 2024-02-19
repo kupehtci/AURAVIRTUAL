@@ -1,5 +1,8 @@
 #include "Renderer.h"
 #include "Application.h"
+//#include <vulkan/vulkan.h>
+//#include <vulkan/vulkan_macos.h>
+//#include <vulkan/vulkan_metal.h>
 
 
 namespace aura{
@@ -30,7 +33,6 @@ namespace aura{
             std::cout << "GLFW not initialized" << std::endl;
             abort();
         }
-
 
 
         if (_graphicsAPI == GraphicsAPI::Vulkan && glfwVulkanSupported() == GLFW_TRUE){
@@ -92,7 +94,7 @@ namespace aura{
         unsigned int glfwExtensionCount = 0;
         const char** glfwExtensions;
         glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-        if(!glfwExtensions){
+        if(glfwExtensions == NULL){
             std::cout << "Failed to find platform surface extensions" << std::endl;
             //abort();
         }
@@ -100,6 +102,7 @@ namespace aura{
         // Resolve VK_ERROR_INCOMPATIBLE_DRIVER
         if(Application::instance->_platform == ApplicationPlatform::MacOS){
             // Complete Create Info
+            _createInfo = {};
             _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
             _createInfo.pApplicationInfo = &_appInfo;
 
@@ -109,8 +112,15 @@ namespace aura{
             std::cout << extensionCount << " extensions supported" << std::endl;
             std::cout << glfwExtensionCount << " glfw extensions supported" << std::endl;
 
-            _createInfo.enabledExtensionCount = (glfwExtensionCount);
-            _createInfo.ppEnabledExtensionNames = glfwExtensions;
+            const char** requiredExtensions = (const char**)malloc((glfwExtensionCount + 1) * sizeof(const char*));
+            for(int i = 0; i < glfwExtensionCount; i++){
+                requiredExtensions[i] = glfwExtensions[i];
+            }
+            requiredExtensions[glfwExtensionCount] = (VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
+            _createInfo.flags |= VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
+
+            _createInfo.enabledExtensionCount = glfwExtensionCount + 1;
+            _createInfo.ppEnabledExtensionNames = requiredExtensions;
         }
 //        else if(Application::instance->_platform == ApplicationPlatform::Linux || Application::instance->_platform == ApplicationPlatform::Windows){
 //
@@ -123,6 +133,7 @@ namespace aura{
 
         // Create instance
         VkResult instanceCreateResult = vkCreateInstance(&_createInfo, nullptr, &_vkinstance);
+
         if(instanceCreateResult != VkResult::VK_SUCCESS){
             std::cout << "Failed to create VkInstance" << std::endl;
 

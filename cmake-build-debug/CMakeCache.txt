@@ -317,10 +317,10 @@ GLFW_SOURCE_DIR:STATIC=/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW
 USE-GLFW-GLAD:BOOL=ON
 
 //Path to a program.
-Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-NOTFOUND
+Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=/usr/local/bin/glslangValidator
 
 //Path to a program.
-Vulkan_GLSLC_EXECUTABLE:FILEPATH=Vulkan_GLSLC_EXECUTABLE-NOTFOUND
+Vulkan_GLSLC_EXECUTABLE:FILEPATH=/usr/local/bin/glslc
 
 //Path to a file.
 Vulkan_INCLUDE_DIR:PATH=Vulkan_INCLUDE_DIR-NOTFOUND
@@ -510,7 +510,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding Vulkan
-FIND_PACKAGE_MESSAGE_DETAILS_Vulkan:INTERNAL=[/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/lib][/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include][c missing components: glslc glslangValidator][v1.3.275()]
+FIND_PACKAGE_MESSAGE_DETAILS_Vulkan:INTERNAL=[/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/lib][/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include][cfound components: glslc glslangValidator ][v1.3.275()]
 //GLFW pkg-config Libs.private
 GLFW_PKG_CONFIG_LIBS_PRIVATE:INTERNAL= -framework Cocoa -framework IOKit -framework CoreFoundation
 //GLFW pkg-config Requires.private

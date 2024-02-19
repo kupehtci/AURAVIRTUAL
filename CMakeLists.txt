@@ -34,10 +34,13 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     message(STATUS "Building for macOS")
 
     # Link Vulkan library
-    set(VULKAN_PATH "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS") #previous: ./lib/MoltenVK
+    set(VULKAN_PATH "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS" ) #previous: ./lib/MoltenVK    "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS"
     set(Vulkan_INCLUDE_DIR ${VULKAN_PATH}/include)
     set(Vulkan_LIBRARY ${VULKAN_PATH}/lib)
-    set(VK_ICD_FILENAMES ${VULKAN_PATH}/share/vulkan/icd.d/MoltenVK_icd.json)
+    set(VK_ICD_FILENAMES ${VULKAN_PATH}/share/vulkan/icd.d)
+
+#    message(STATUS "VULKAN_SDK: ${VULKAN_SDK}")
+#    message(STATUS "VULKAN PATH: ${VULKAN_PATH}")
 
     find_package(Vulkan REQUIRED)
     target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")

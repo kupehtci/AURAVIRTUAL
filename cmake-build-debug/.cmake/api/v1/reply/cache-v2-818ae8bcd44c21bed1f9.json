@@ -1499,7 +1499,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/lib][/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include][c missing components: glslc glslangValidator][v1.3.275()]"
+			"value" : "[/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/lib][/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include][cfound components: glslc glslangValidator ][v1.3.275()]"
 		},
 		{
 			"name" : "GLFW_BINARY_DIR",
@@ -1659,7 +1659,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-NOTFOUND"
+			"value" : "/usr/local/bin/glslangValidator"
 		},
 		{
 			"name" : "Vulkan_GLSLC_EXECUTABLE",
@@ -1675,7 +1675,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "Vulkan_GLSLC_EXECUTABLE-NOTFOUND"
+			"value" : "/usr/local/bin/glslc"
 		},
 		{
 			"name" : "Vulkan_INCLUDE_DIR",
