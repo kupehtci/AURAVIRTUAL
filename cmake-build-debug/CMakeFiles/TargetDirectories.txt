@@ -1,9 +1,0 @@
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/AURAVIRTUAL.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/CMakeFiles/edit_cache.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/CMakeFiles/rebuild_cache.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src/CMakeFiles/glfw.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src/CMakeFiles/update_mappings.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src/CMakeFiles/edit_cache.dir
-/Volumes/CHESHIRE/AURAVIRTUAL/cmake-build-debug/lib/GLFW/src/CMakeFiles/rebuild_cache.dir
