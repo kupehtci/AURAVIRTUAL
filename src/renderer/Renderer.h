@@ -8,13 +8,10 @@
 //#include "ApplicationPlatform.h"
 #include "Singleton.h"
 
-//#if VK_HEADER_VERSION_COMPLETE >= VK_MAKE_API_VERSION(0, 1, 3, 216)
-#define VULKAN_HAS_KHR_PORTABILITY
-//#endif
-
 //#include <vulkan/vulkan.h>
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
+
 
 namespace aura{
 
@@ -54,6 +51,10 @@ namespace aura{
         VkApplicationInfo _appInfo;
         VkInstanceCreateInfo _createInfo;
         VkInstance _vkinstance;
+        VkPhysicalDevice _vkphysicalDevice;
+
+    private:
+        bool _enableValidationLayers;
 
     public:
 
@@ -70,6 +71,19 @@ namespace aura{
 
     private:
         void CreateInstance();
+        bool CheckValidationLayerSupport();
+        void PickPhysicalDevice();
+
+        // Getters and setters
+        inline bool AreValidationLayersEnabled(){
+            return _enableValidationLayers;
+        }
+
+
+        // Usable methods
+
+    private:
+        bool IsDeviceSuitable(VkPhysicalDevice device);
     };
 }
 
