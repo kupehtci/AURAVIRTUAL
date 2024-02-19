@@ -53,7 +53,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o: CXX_COMPILER__AURAV
   DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/core
 
@@ -61,7 +61,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o: CXX_COMPILER__AURAVIRTUAL_
   DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/core
 
@@ -69,7 +69,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o: CXX_COMPILER__AURAVIRT
   DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/math
 
@@ -77,7 +77,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o: CXX_COMPILER__AURA
   DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/renderer
 
@@ -85,7 +85,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o: CXX_COMPILER__AURAVIRTU
   DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o.d
   FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/scene
 
@@ -93,7 +93,7 @@ build CMakeFiles/AURAVIRTUAL.dir/src/renderer/triangle-vulkan.c.o: C_COMPILER__A
   DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
   DEP_FILE = CMakeFiles/AURAVIRTUAL.dir/src/renderer/triangle-vulkan.c.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -fcolor-diagnostics
-  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
+  INCLUDES = -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/components -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/renderer -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/core -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/debug -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/math -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/physics -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/scene -I/Volumes/CHESHIRE/AURAVIRTUAL/./src/ui -I/include -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/deps -I/Volumes/CHESHIRE/AURAVIRTUAL/lib/GLFW/include
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   OBJECT_FILE_DIR = CMakeFiles/AURAVIRTUAL.dir/src/renderer
 
@@ -107,8 +107,8 @@ build CMakeFiles/AURAVIRTUAL.dir/src/renderer/triangle-vulkan.c.o: C_COMPILER__A
 
 build AURAVIRTUAL: CXX_EXECUTABLE_LINKER__AURAVIRTUAL_Debug CMakeFiles/AURAVIRTUAL.dir/src/core/Application.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/core/main.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/math/Vector2D.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/renderer/Renderer.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/scene/Object.cpp.o CMakeFiles/AURAVIRTUAL.dir/src/renderer/triangle-vulkan.c.o | lib/GLFW/src/libglfw3.a || lib/GLFW/src/libglfw3.a
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk
-  LINK_LIBRARIES = -Wl,-rpath,/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/lib -Wl,-rpath,/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/share/vulkan/icd.d  lib/GLFW/src/libglfw3.a  -lvulkan  -framework Cocoa  -framework IOKit  -framework CoreFoundation
-  LINK_PATH = -L/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/lib   -L/Users/dlaplana/VulkanSDK/1.3.275.0/macOS/share/vulkan/icd.d
+  LINK_LIBRARIES = -Wl,-rpath,/share/vulkan/icd.d  lib/GLFW/src/libglfw3.a  -lvulkan  -framework Cocoa  -framework IOKit  -framework CoreFoundation
+  LINK_PATH = -L/share/vulkan/icd.d
   OBJECT_DIR = CMakeFiles/AURAVIRTUAL.dir
   POST_BUILD = :
   PRE_LINK = :

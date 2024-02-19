@@ -39,9 +39,6 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(Vulkan_LIBRARY ${VULKAN_PATH}/lib)
     set(VK_ICD_FILENAMES ${VULKAN_PATH}/share/vulkan/icd.d)
 
-#    message(STATUS "VULKAN_SDK: ${VULKAN_SDK}")
-#    message(STATUS "VULKAN PATH: ${VULKAN_PATH}")
-
     find_package(Vulkan REQUIRED)
     target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
     target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/lib")
