@@ -56,7 +56,6 @@ set( GLAD_GL "" )
 
 add_subdirectory( ./lib/GLFW )   # This works with /lib/GLFW/CMakeLists.txt
 
-
 option( USE-GLFW-GLAD "Use GLAD from GLFW" ON )
 
 if( USE-GLFW-GLAD )
@@ -66,6 +65,13 @@ if( USE-GLFW-GLAD )
 endif()
 
 target_link_libraries(AURAVIRTUAL glfw vulkan)
+
+# Link GLM
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    find_package(glm REQUIRED)
+    target_link_libraries(AURAVIRTUAL glm)
+    message(STATUS "Linking GLM Headers")
+endif()
 
 
 

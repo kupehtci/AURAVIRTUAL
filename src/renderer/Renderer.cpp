@@ -94,7 +94,6 @@ namespace aura{
         _appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
         _appInfo.apiVersion = VK_MAKE_VERSION(1, 0, 2);
 
-
         unsigned int glfwExtensionCount = 0;
         const char** glfwExtensions;
         glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
@@ -129,6 +128,7 @@ namespace aura{
         }
         else if(Application::instance->_platform == ApplicationPlatform::Linux || Application::instance->_platform == ApplicationPlatform::Windows){
 
+            // TODO Remain to check compatibility
             _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
             _createInfo.pApplicationInfo = &_appInfo;
             _createInfo.enabledExtensionCount = glfwExtensionCount;
@@ -177,6 +177,9 @@ namespace aura{
         else{
             std::cout << "Success creating VKinstance" << std::endl;
         }
+
+        // Select compatible GPU for Vulkan
+        //PickPhysicalDevice();
     }
 
     bool Renderer::CheckValidationLayerSupport(){
@@ -243,6 +246,11 @@ namespace aura{
         }
     }
 
+    /**
+     * Check is the device is Suitable for vulkan
+     * @param device
+     * @return
+     */
     bool Renderer::IsDeviceSuitable(VkPhysicalDevice device){
         return true;
     }
