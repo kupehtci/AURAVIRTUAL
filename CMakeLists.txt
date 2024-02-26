@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
 project(AURAVIRTUAL)
+include(FindVulkan)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -31,10 +32,11 @@ target_include_directories(AURAVIRTUAL PUBLIC ./src/ui)
 
 # Vulkan library
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    message(STATUS "Building for macOS")
+    message(STATUS "Building vulkan for macOS")
 
-    # Link Vulkan library
-    set(VULKAN_PATH "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS" ) #previous: ./lib/MoltenVK    "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS"
+    if(NOT DEFINED VULKAN_PATH)
+        set(VULKAN_PATH "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS" ) #previous: ./lib/MoltenVK    "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS"
+    endif()
     set(Vulkan_INCLUDE_DIR ${VULKAN_PATH}/include)
     set(Vulkan_LIBRARY ${VULKAN_PATH}/lib)
     set(VK_ICD_FILENAMES ${VULKAN_PATH}/share/vulkan/icd.d)
@@ -42,11 +44,13 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     find_package(Vulkan REQUIRED)
     target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
     target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/lib")
-    target_compile_definitions(AURAVIRTUAL PUBLIC VK_USE_PLATFORM_MACOS_MVK)     # define macOs usage
     target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/share/vulkan/icd.d/")
+    target_compile_definitions(AURAVIRTUAL PUBLIC VK_USE_PLATFORM_MACOS_MVK)     # define macOs usage
 
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    message(STATUS "Building for Windows")
+    message(STATUS "Building vulkan for Windows")
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+    message(STATUS "Building vulkan for Linux")
 endif()
 
 # Link GLFW
@@ -68,9 +72,10 @@ target_link_libraries(AURAVIRTUAL glfw vulkan)
 
 # Link GLM
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    find_package(glm REQUIRED)
-    target_link_libraries(AURAVIRTUAL glm)
     message(STATUS "Linking GLM Headers")
+    #find_package(glm REQUIRED)
+    target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
+    message(STATUS "Vulkan path: ${VULKAN_PATH}")
 endif()
 
 

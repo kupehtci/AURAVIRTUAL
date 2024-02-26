@@ -145,7 +145,7 @@ namespace aura{
 
         // Create instance
         VkResult instanceCreateResult = vkCreateInstance(&_createInfo, nullptr, &_vkinstance);
-
+        std::cout << "Created vk instance" << std::endl;
         if(instanceCreateResult != VkResult::VK_SUCCESS){
             std::cout << "Failed to create VkInstance" << std::endl;
 
@@ -179,7 +179,7 @@ namespace aura{
         }
 
         // Select compatible GPU for Vulkan
-        //PickPhysicalDevice();
+        PickPhysicalDevice();
     }
 
     bool Renderer::CheckValidationLayerSupport(){
@@ -230,7 +230,6 @@ namespace aura{
         if(deviceCount == 0){ std::cout << "Failed to find avaliable GPUs that supports Vulkan" << std::endl; abort(); }
 
         VkPhysicalDevice* devices = (VkPhysicalDevice*)malloc(deviceCount * sizeof(VkPhysicalDevice));
-
         vkEnumeratePhysicalDevices(_vkinstance, &deviceCount, devices);
 
         for(int i = 0; i < deviceCount; i++){
@@ -252,7 +251,20 @@ namespace aura{
      * @return
      */
     bool Renderer::IsDeviceSuitable(VkPhysicalDevice device){
-        return true;
+        //return true;
+
+        // Retrieve the actual evaluated device properties
+        VkPhysicalDeviceProperties deviceProps;
+        vkGetPhysicalDeviceProperties(device, &deviceProps);
+        VkPhysicalDeviceFeatures deviceFeatures;
+        vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
+
+        std::cout << "GPU picked: " << deviceProps.deviceName << std::endl;
+        std::cout << "Max Geometry 2D avaliable: " << deviceProps.limits.maxImageDimension2D << std::endl;
+
+        // Check if dedicated cart can render shaders
+        return ((deviceProps.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU || deviceProps.deviceType == VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU)
+                && deviceFeatures.geometryShader);
     }
     // endregion
 }

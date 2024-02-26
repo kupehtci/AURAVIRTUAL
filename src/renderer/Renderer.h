@@ -5,13 +5,13 @@
 
 #include <stdio.h>
 #include <exception>
-//#include "ApplicationPlatform.h"
-#include "Singleton.h"
 
-//#include <vulkan/vulkan.h>
+#include "Singleton.h"
+#include "QueueFamily.h"
+
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
-//#include <glm/glm.hpp> // // TODO Not working
+#include <glm/glm.hpp>
 
 namespace aura{
 
@@ -80,7 +80,7 @@ namespace aura{
         }
 
 
-        // Usable methods
+        // Private structs
 
     private:
         bool IsDeviceSuitable(VkPhysicalDevice device);
