@@ -52,7 +52,13 @@ namespace aura{
 
             _window = glfwCreateWindow((int)_windowSize.width, (int)_windowSize.height, "Aura Virtual", NULL, NULL);
 
+            // Create Vulkan instance
             this->CreateInstance();
+
+            // Select compatible GPU for Vulkan
+            PickPhysicalDevice();
+
+            // Create Logical Device for the picked device
         }
         else{
             std::cout << "No graphics API avaliable";
@@ -117,7 +123,7 @@ namespace aura{
             std::cout << extensionCount << " vk extensions supported" << std::endl;
             std::cout << glfwExtensionCount << " glfw extensions supported" << std::endl;
 #endif
-            // Resolve VK_ERROR_INCOMPATIBLE_DRIVER
+            // Resolve VK_ERROR_INCOMPATIBLE_DRIVER in MACOS
             const char** requiredExtensions = (const char**)malloc((glfwExtensionCount + 1) * sizeof(const char*));
             for(int i = 0; i < glfwExtensionCount; i++){
                 requiredExtensions[i] = glfwExtensions[i];
@@ -147,7 +153,7 @@ namespace aura{
 
         // Create instance
         VkResult instanceCreateResult = vkCreateInstance(&_createInfo, nullptr, &_vkinstance);
-        std::cout << "Created vk instance" << std::endl;
+
         if(instanceCreateResult != VkResult::VK_SUCCESS){
             std::cout << "Failed to create VkInstance" << std::endl;
 
@@ -179,9 +185,6 @@ namespace aura{
         else{
             std::cout << "Success creating VKinstance" << std::endl;
         }
-
-        // Select compatible GPU for Vulkan
-        PickPhysicalDevice();
     }
 
     bool Renderer::CheckValidationLayerSupport(){
@@ -237,8 +240,6 @@ namespace aura{
 
         // Get the devices (GPUs) and check if they are suitable.
         // Then select the first one.
-        std:cout << "Number of devices: " << deviceCount << std:endl;
-
         VkPhysicalDevice* devices = (VkPhysicalDevice*)malloc(deviceCount * sizeof(VkPhysicalDevice));
         vkEnumeratePhysicalDevices(_vkinstance, &deviceCount, devices);
 
@@ -256,6 +257,7 @@ namespace aura{
             return;
         }
         free(devices);
+        // At this step we have the appropriate PhysicalDevice selected and ready to use
     }
 
     /**
@@ -264,11 +266,22 @@ namespace aura{
      * @return
      */
     bool Renderer::IsDeviceSuitable(VkPhysicalDevice device){
-        //return true;
+
+        // we need to determine the appropriate queue family that support graphics command that are implemented for the device
+        QueueFamily queueFamily =  QueueFamily();
+        QueueFamilyIndices indices =  queueFamily.FindQueueFamilies(device);
+
+        if(!indices._graphicsFamily.has_value()){
+            std::cout << "Graphics family has no value" << std::endl;
+        }
+        else{
+            std::cout << "Graphics family correctly validated" << std::endl;
+        }
 
         // Retrieve the actual evaluated device properties
         VkPhysicalDeviceProperties deviceProps;
         vkGetPhysicalDeviceProperties(device, &deviceProps);
+
         VkPhysicalDeviceFeatures deviceFeatures;
         vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
 
@@ -277,7 +290,16 @@ namespace aura{
 
         // Check if dedicated cart can render shaders
         return ((deviceProps.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU || deviceProps.deviceType == VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU)
-                && deviceFeatures.geometryShader);
+                /*&& deviceFeatures.geometryShader*/);
+
     }
     // endregion
+    /**
+     * Find appropriate Queue family suitable for the Physical Device selected
+     * @param device
+     * @return
+     */
+    uint32_t Renderer::FindQueueFamilies(VkPhysicalDevice device){
+
+    }
 }

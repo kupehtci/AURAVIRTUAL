@@ -73,6 +73,7 @@ namespace aura{
         void CreateInstance();
         bool CheckValidationLayerSupport();
         void PickPhysicalDevice();
+        uint32_t FindQueueFamilies(VkPhysicalDevice device);
 
         // Getters and setters
         inline bool AreValidationLayersEnabled(){

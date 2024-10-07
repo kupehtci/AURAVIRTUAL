@@ -16,7 +16,7 @@ namespace aura {
 
     struct QueueFamilyIndices{
         std::optional<uint32_t> _graphicsFamily;
-        std::optional<uint32_t> _presentFamily;
+        std::optional<uint32_t> _presentFamily;         // Not currently in use
 
         inline bool IsCompleted(){
             return (_graphicsFamily.has_value() && _presentFamily.has_value());
@@ -26,7 +26,7 @@ namespace aura {
     class QueueFamily {
 
     public:
-        QueueFamilyIndices FindQueueFamilies(const VkPhysicalDevice& device, const VkSurfaceKHR& surface);
+        QueueFamilyIndices FindQueueFamilies(const VkPhysicalDevice& device/*, const VkSurfaceKHR& surface*/);
     };
 
 } // aura
