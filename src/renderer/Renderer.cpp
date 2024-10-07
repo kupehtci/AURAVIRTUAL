@@ -1,5 +1,7 @@
 #include "Renderer.h"
 #include "Application.h"
+#include <iostream>
+#include <vector>
 
 //#define mDEBUG
 #define vkDEBUG             // // Vulkan debug options using validation layers
@@ -67,7 +69,7 @@ namespace aura{
     }
 
     void Renderer::LateUpdate() {
-
+        // Actually in use
     }
 
     void Renderer::Close(){
@@ -227,22 +229,33 @@ namespace aura{
         uint32_t deviceCount = 0;
         vkEnumeratePhysicalDevices(_vkinstance, &deviceCount, nullptr);
 
-        if(deviceCount == 0){ std::cout << "Failed to find avaliable GPUs that supports Vulkan" << std::endl; abort(); }
+        // If not there is not available GPU that suppport vulkan
+        if(deviceCount == 0){
+            std::cout << "Failed to find available GPUs that supports Vulkan" << std::endl;
+            abort();
+        }
+
+        // Get the devices (GPUs) and check if they are suitable.
+        // Then select the first one.
+        std:cout << "Number of devices: " << deviceCount << std:endl;
 
         VkPhysicalDevice* devices = (VkPhysicalDevice*)malloc(deviceCount * sizeof(VkPhysicalDevice));
         vkEnumeratePhysicalDevices(_vkinstance, &deviceCount, devices);
 
+        std::cout << "Number of devices detected: " << deviceCount << std::endl;
+
         for(int i = 0; i < deviceCount; i++){
             if(IsDeviceSuitable(devices[i])) {
                 _vkphysicalDevice = devices[i];
+                break;
             }
         }
 
-        free(devices);
         if(_vkphysicalDevice == VK_NULL_HANDLE){
             std::cout << "Failed to find suitable GPUs that supports Vulkan" << std::endl;
             return;
         }
+        free(devices);
     }
 
     /**

@@ -39,6 +39,4 @@ namespace aura {
 
         return indices;
     }
-    }
-
-} // aura
+}

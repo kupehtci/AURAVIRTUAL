@@ -49,8 +49,10 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     message(STATUS "Building vulkan for Windows")
+    # Windows compilation environment build
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     message(STATUS "Building vulkan for Linux")
+    # Linux compilation environment build
 endif()
 
 # Link GLFW

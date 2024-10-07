@@ -1,2 +1,4 @@
-lib/MoltenVK
 cmake-build-debug/
+CMakeFiles/**
+CMakeFiles/*
+CMakeFiles/
