@@ -51,6 +51,23 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     message(STATUS "Building vulkan for Windows")
     # Windows compilation environment build
+
+    if(NOT DEFINED VULKAN_PATH)
+        message("Vulkan path not defined, using hardcoded")
+        set(VULKAN_PATH "D:/VulkanSDK/1.3.296.0" ) #previous: ./lib/MoltenVK    "/Users/dlaplana/VulkanSDK/1.3.275.0/macOS"
+    elseif(DEFINED VULKAN_PATH)
+        message("Vulkan path defined")
+    endif()
+    set(Vulkan_INCLUDE_DIR ${VULKAN_PATH}/include)
+    set(Vulkan_LIBRARY ${VULKAN_PATH}/lib)
+    set(VK_ICD_FILENAMES ${VULKAN_PATH}/share/vulkan/icd.d)
+
+    find_package(Vulkan REQUIRED)
+    target_include_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/include")
+    target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/lib")
+    target_link_directories(AURAVIRTUAL PUBLIC "${VULKAN_PATH}/share/vulkan/icd.d/")
+    target_compile_definitions(AURAVIRTUAL PUBLIC VK_USE_PLATFORM_MACOS_MVK)     # define macOs usage
+
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     message(STATUS "Building vulkan for Linux")
     # Linux compilation environment build

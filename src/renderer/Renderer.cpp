@@ -2,6 +2,7 @@
 #include "Application.h"
 #include <iostream>
 #include <vector>
+#include <cstring>
 
 //#define mDEBUG
 #define vkDEBUG             // // Vulkan debug options using validation layers
@@ -300,6 +301,6 @@ namespace aura{
      * @return
      */
     uint32_t Renderer::FindQueueFamilies(VkPhysicalDevice device){
-
+        return (uint32_t) 0.0f;
     }
 }
