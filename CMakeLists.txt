@@ -19,6 +19,7 @@ file(GLOB SRCFILES CONFIGURE_DEPENDS
 add_executable(AURAVIRTUAL ${SRCFILES}
         src/renderer/triangle-vulkan.c)
 
+# Include all the source folder and subfolders
 target_include_directories(AURAVIRTUAL PUBLIC ./src/components)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/renderer)
 target_include_directories(AURAVIRTUAL PUBLIC ./src/core)
