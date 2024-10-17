@@ -39,7 +39,7 @@ namespace aura{
         Color(uint8_t red, uint8_t green, uint8_t blue) : r(red), g(green), b(blue) {}
     };
 
-    enum GraphicsAPI{ Vulkan = 0, SDL, none};
+    enum GraphicsAPI{ Vulkan = 0, OpenGL, SDL, none};
 
     class Renderer: public Singleton<Renderer>{
     public:
@@ -66,13 +66,12 @@ namespace aura{
         void LateUpdate();
         void Close();
 
-        // Testing methods
-        void Hello();
 
     private:
         void CreateInstance();
         bool CheckValidationLayerSupport();
         void PickPhysicalDevice();
+        void CreateLogicalDevice();
         uint32_t FindQueueFamilies(VkPhysicalDevice device);
 
         // Getters and setters

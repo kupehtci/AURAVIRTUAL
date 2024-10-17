@@ -60,6 +60,7 @@ namespace aura{
             PickPhysicalDevice();
 
             // Create Logical Device for the picked device
+            CreateLogicalDevice();
         }
         else{
             std::cout << "No graphics API avaliable";
@@ -137,7 +138,7 @@ namespace aura{
         }
         else if(Application::instance->_platform == ApplicationPlatform::Linux || Application::instance->_platform == ApplicationPlatform::Windows){
 
-            // TODO Remain to check compatibility
+            // TODO Remain to check compatibility with windows and linux
             _createInfo.sType = VkStructureType::VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
             _createInfo.pApplicationInfo = &_appInfo;
             _createInfo.enabledExtensionCount = glfwExtensionCount;
@@ -259,6 +260,8 @@ namespace aura{
         }
         free(devices);
         // At this step we have the appropriate PhysicalDevice selected and ready to use
+
+
     }
 
     /**
@@ -287,20 +290,64 @@ namespace aura{
         vkGetPhysicalDeviceFeatures(device, &deviceFeatures);
 
         std::cout << "GPU picked: " << deviceProps.deviceName << std::endl;
-        std::cout << "Max Geometry 2D avaliable: " << deviceProps.limits.maxImageDimension2D << std::endl;
+        std::cout << "Max Geometry 2D available: " << deviceProps.limits.maxImageDimension2D << std::endl;
 
         // Check if dedicated cart can render shaders
         return ((deviceProps.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU || deviceProps.deviceType == VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU)
                 /*&& deviceFeatures.geometryShader*/);
-
     }
     // endregion
+
+
     /**
-     * Find appropriate Queue family suitable for the Physical Device selected
-     * @param device
-     * @return
+     * Create a new Logical Device associated with the Physical device picker earlier
+     *
      */
-    uint32_t Renderer::FindQueueFamilies(VkPhysicalDevice device){
-        return (uint32_t) 0.0f;
+    void Renderer::CreateLogicalDevice() {
+        QueueFamilyIndices queueFamilyIndices = QueueFamily::FindQueueFamilies(_vkphysicalDevice);
+
+        uint32_t queueFamilyCount = 0;
+        // TODO: Create logical device implementation
+        VkDeviceQueueCreateInfo queueCreateInfo{};
+        queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+        queueCreateInfo.queueFamilyIndex = queueFamilyIndices._graphicsFamily.value();
+        queueCreateInfo.queueCount = 1;
+
+        float queuePriority = 1.0f;
+        queueCreateInfo.pQueuePriorities = &queuePriority;
+
+        VkPhysicalDeviceFeatures deviceFeatures{};
+
+        VkDeviceCreateInfo createInfo{};
+        createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+
+        createInfo.pQueueCreateInfos = &queueCreateInfo;
+        createInfo.queueCreateInfoCount = 1;
+
+        createInfo.pEnabledFeatures = &deviceFeatures;
+
+        createInfo.enabledExtensionCount = 0;
+
+        if (_enableValidationLayers) {
+            createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+            createInfo.ppEnabledLayerNames = _validationLa.data();
+        } else {
+            createInfo.enabledLayerCount = 0;
+        }
+
+        if (vkCreateDevice(physicalDevice, &createInfo, nullptr, &device) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create logical device!");
+        }
+
+        vkGetDeviceQueue(device, indices.graphicsFamily.value(), 0, &graphicsQueue);
     }
+
+//    /**
+//     * Find appropriate Queue family suitable for the Physical Device selected
+//     * @param device
+//     * @return
+//     */
+//    uint32_t Renderer::FindQueueFamilies(VkPhysicalDevice device){
+//        return (uint32_t) 0.0f;
+//    }
 }

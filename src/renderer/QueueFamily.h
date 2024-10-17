@@ -19,14 +19,14 @@ namespace aura {
         std::optional<uint32_t> _presentFamily;         // Not currently in use
 
         inline bool IsCompleted(){
-            return (_graphicsFamily.has_value() && _presentFamily.has_value());
+            return (_graphicsFamily.has_value()/* && _presentFamily.has_value()*/);
         }
     };
 
     class QueueFamily {
 
     public:
-        QueueFamilyIndices FindQueueFamilies(const VkPhysicalDevice& device/*, const VkSurfaceKHR& surface*/);
+        static QueueFamilyIndices FindQueueFamilies(const VkPhysicalDevice& device/*, const VkSurfaceKHR& surface*/);
     };
 
 } // aura

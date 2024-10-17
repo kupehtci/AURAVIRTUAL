@@ -56,7 +56,14 @@ namespace aura {
             if (queueFamily.queueFlags & VK_QUEUE_GRAPHICS_BIT) {
                 indices._graphicsFamily = i;
             }
-            if(indices._graphicsFamily.has_value()) {break; }
+            // Previous
+//            if(indices._graphicsFamily.has_value()) {break; }
+
+            // New
+            if(indices.IsCompleted()){
+                break;
+            }
+
             i++;
         }
 
